@@ -1,0 +1,34 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIItem : MonoBehaviour
+{
+    [SerializeField] private Image image;
+    [SerializeField] private Text counterText;
+
+    private int count;
+
+    public void SetSprite(Sprite sprite)
+    {
+        image.sprite = sprite;
+    }
+
+    public void SetCount(int count)
+    {
+        this.count = count;
+        counterText.text = count.ToString();
+    }
+
+    public void Decrease()
+    {
+        count--;
+        if (count == 0)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            counterText.text = count.ToString();
+        }
+    }
+}
